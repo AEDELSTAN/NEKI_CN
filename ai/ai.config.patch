@@ -1,8 +1,5 @@
 [
-	// ########################################################################
-	// Code to replace all vanilla SAIL terminal dialogue
-	// NO CREW MEMBERS (SHEEPISH)
-	{
+    {
 		"op": "replace",
 		"path": "/noCrewSpeech",
 		"value": {
@@ -11,7 +8,6 @@
 			"speedModifier": 0.7
 		}
 	},
-	// NO MISSIONS (SHEEPISH)
 	{
 		"op": "replace",
 		"path": "/noMissionsSpeech",
@@ -21,7 +17,6 @@
 			"speedModifier": 0.7
 		}
 	},
-	// TELEPORTER FUNCTIONAL (SHEEPISH)
 	{
 		"op": "replace",
 		"path": "/shipStatus/1",
@@ -31,7 +26,6 @@
 			"speedModifier": 0.7
 		}
 	},
-	// SHIP FUNCTIONAL (TALK)
 	{
 		"op": "replace",
 		"path": "/shipStatus/2",
@@ -41,7 +35,6 @@
 			"speedModifier": 0.7
 		}
 	},
-	// FTL FUNCTIONAL (TALK)
 	{
 		"op": "replace",
 		"path": "/shipStatus/3",

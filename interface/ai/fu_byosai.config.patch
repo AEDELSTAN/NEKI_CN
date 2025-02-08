@@ -1,0 +1,22 @@
+[
+	{
+		"op": "replace",
+		"path": "/gui/windowIcon/file",
+		"value": "/interface/ai/nonEKIicon.png"
+	},
+	{
+		"op": "replace",
+		"path": "/gui/windowTitle/value",
+		"value": "N.E.K.I."
+	},
+	{
+		"op": "replace",
+		"path": "/gui/windowSubtitle/value",
+		"value": "备用猫咪交互界面"
+	},
+	{
+		"op": "replace",
+		"path": "/states/initial/text",
+		"value": "N.E.K.I. 无响应。飞船完整性低。导航系统未初始化。请选择一种飞船类型以继续：\n\nFrackin 飞船:\n逐块建造你的飞从多种预设中选择。需要安装新的超光速驱动器。请查看你的三分仪任务以获取指引。\n\n原版飞船:\n你种族的默认 Starbound 飞船。使用部分 FU 飞船功能。"
+	}
+]

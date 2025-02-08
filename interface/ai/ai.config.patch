@@ -1,0 +1,29 @@
+[
+	[
+		{
+			"op": "test",
+			"path": "/guiConfig/windowtitle/title",
+			"value": "A.V.I.A.N.",
+			"inverse": true
+		},
+		{
+			"op": "test",
+			"path": "/guiConfig/banner",
+			"inverse": true
+		},{
+			"op": "replace",
+			"path": "/guiConfig/windowtitle/title",
+			"value": "N.E.K.I."
+		},
+		{
+			"op": "replace",
+			"path": "/guiConfig/windowtitle/subtitle",
+			"value": "备用猫咪交互界面(>^ω^<)"
+		},
+		{
+			"op": "replace",
+			"path": "/guiConfig/windowtitle/icon/file",
+			"value": "/interface/ai/nonEKIicon.png"
+		}
+	]
+]
