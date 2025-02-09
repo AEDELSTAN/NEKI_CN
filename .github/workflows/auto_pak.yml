@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # 检出代码
+        uses: actions/checkout@latest  # 检出代码
 
       - name: Set up environment
         run: |
