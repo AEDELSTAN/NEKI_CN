@@ -40,7 +40,7 @@ jobs:
       - name: Make asset_packer executable
         run: |
           chmod +x asset_packer
-          ./asset_packer || exit 1  # 赋予 asset_packer 执行权限，并在失败时退出
+          ./asset_packer . NonEKI_CN.pak || exit 1  # 赋予 asset_packer 执行权限，并在失败时退出
 
       - name: Check .pak file existence
         run: |
