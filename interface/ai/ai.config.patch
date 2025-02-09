@@ -10,7 +10,8 @@
 			"op": "test",
 			"path": "/guiConfig/banner",
 			"inverse": true
-		},{
+		},
+		{
 			"op": "replace",
 			"path": "/guiConfig/windowtitle/title",
 			"value": "N.E.K.I."

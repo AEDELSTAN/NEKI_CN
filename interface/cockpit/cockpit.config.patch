@@ -1,22 +1,10 @@
 [
-  [
-    // Check for presence of Starburst Rework.
-    {
-      "op": "test",
-      "path": "/visitableTypeDescription/pf_stormy"
-    },
-    {
-      "op": "add",
-      "path": "/nonEKI-StarburstReworkCheck",
-      "value": true
-    }
-  ],
   // The planet description box can only hold up to 165 characters. Anything more than that is a gamble.
   [
     {
       "op": "replace",
       "path": "/gui/jumpDialog/children/text/value",
-      "value": "FTL travel will cost ^green;%s fuel^reset;.\nReady to roll?"
+      "value": "超光速旅行将消耗^green;%s燃料^reset;。\n是否跃迁?"
     },
     // ################# TIER 1  #################    
     // ------------- Lush/Garden -------------  
@@ -24,9 +12,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/garden",
       "value": [
-        "^reset;The ultimate unmowed lawn:^reset; a biome of ^#76fe68;lush^reset; plains as far as the eye can see! Oh, I bet the dandelions are awful. The alien dandelions.",
-        "Absolutely sopping wet, this place! But where there's water, there's life; the beam site's teeming with ^#76fe68;lush^reset; grassy hills.",
-        "A very earthly place, for an alien planet; the landing site is covered in ^#76fe68;lush^reset; plains. You can find trees here... and rain!"
+        "^reset;一片天然的草原：^reset; 这里是一望无际的^#76fe68;茂密^reset;平原！哦，我敢说那些蒲公英（外星蒲公英）一定很烦人。",
+        "这个地方湿透了！但有水的地方就有生命；光束点周围遍布^#76fe68;茂密^reset;的草山。",
+        "对于一个外星星球来说，这里非常像地球；着陆点被^#76fe68;茂密^reset;的平原覆盖。你能在这里找到树木……还有雨！"
       ]
     },
     // ################# TIER 2  #################  
@@ -35,9 +23,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/forest",
       "value": [
-        "Deep, thick ^#15ce02;forests^reset; dominate the landing site. If I were you, I'd build a secret treehouse here. A big one! Who's gonna stop you?",
-        "The trees have staked their claim in the lands of this ^#15ce02;forest^reset; biome. A perfect spot to make a cozy little den. That's the dream, right there. What do you think?",
-        "Nothing quite like being alone in a lush, mossy ^#15ce02;forest^reset; like this one. The perfect place to go hunting! Or get hunted yourself... Ah, probably not."
+        "^reset;深邃茂密的^#15ce02;森林^reset;覆盖了整个着陆点。如果我是你，我会在这里建一个秘密树屋。一个超大的树屋！谁能阻止你呢？",
+        "这片^#15ce02;森林^reset;生物群系的树木已经占据了这片土地。这里是建造一个舒适小窝的完美地点。这就是梦想啊，对吧？你觉得呢？",
+        "没有什么比独自一人置身于这样一片茂密、长满苔藓的^#15ce02;森林^reset;中更棒了。这里是打猎的绝佳地点！或者成为猎物……啊，可能不会吧。"
       ]
     },
     // ------------- Desert ------------- needs FU tweaks (hot days)
@@ -46,9 +34,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/desert",
       "value": [
-        "Need to smelt any glass? Help yourself to the infinite dunes of sand in this ^#e6c801;desert^reset; biome! I'm sure there's plenty of the stuff.",
-        "If you're not a fan of sand, I beg of you not to go to this ^#e6c801;desert^reset; biome. You won't believe what you see. I also detect a cactus.",
-        "The landing site is located in a huge, dusty ^#e6c801;desert^reset;, with harsh winds, hot sun, and no sand worms whatsoever! Those are fictional, surely."
+        "需要熔炼玻璃吗？请随意开采这个^#e6c801;沙漠^reset;生物群系中无限的沙丘！我相信那里有大量的沙子。",
+        "如果你不喜欢沙子，我恳求你不要去这个^#e6c801;沙漠^reset;生物群系。你不会相信你所看到的...我还检测到一株仙人掌。",
+        "着陆点位于一个巨大而尘土飞扬的^#e6c801;沙漠^reset;中，那里有狂风、烈日，而且绝对没有沙虫！那些肯定是虚构的。"
       ]
     },
     // ################# TIER 3  #################
@@ -57,9 +45,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/snow",
       "value": [
-        "According to my scans... every day here is a ^#69f1fd;snow^reset; day! It's a cold world, but fortunately, the beam site... well, it isn't LETHALLY chilly.",
-        "A sparkly, powdery, ^#69f1fd;snowy^reset; biome. It's cold here, but it's not so bad: the scans say there's all kinds of creatures there. Just dress warm, got it?",
-        "A ^#69f1fd;snowy^reset; biome, where it's winter forever. It's pretty cold here, but nothing my immense fluff couldn't handle! ...You should be fine too."
+        "根据我的扫描……这里的每一天都是^#69f1fd;雪^reset;天！这是一个寒冷的世界，但幸运的是，着陆点……嗯，还不至于冷到致命。",
+        "一个闪闪发光、粉状的^#69f1fd;雪^reset;生物群系。这里很冷，但还不算太糟：扫描显示那里有各种各样的生物。记得穿暖和点，听到了吗？",
+        "一个^#69f1fd;雪^reset;生物群系，那里永远是冬天。这里相当冷，但我的厚毛足以应对！……你应该也没问题。"
       ]
     },
     // ------------- Dry Grassland/Savannah -------------
@@ -67,9 +55,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/savannah",
       "value": [
-        "A sun-dried savannah, blanketed with ^#ffe21d;dry grasslands^reset; and rocky cliffs. Just the place to go on an educational animal adventure.",
-        "The beam site puts us in a ^#ffe21d;dry grassland^reset;, wide open and full of alien life. Scans say it's rocky, windy and hot... I say it's a pretty good sunbathing location!",
-        "A rocky, ^#ffe21d;dry grassland^reset;, where it's sweltering hot! There are plateaus, canyons, tumbleweeds, and all the other fixings of a nice savannah."
+        "一片干燥的热带草原, 覆盖着 ^#ffe21d;干燥的草地^reset; 和陡峭岩壁。 是个进行动物研学旅行的绝佳地点",
+        "着陆点将我们置身于^#ffe21d;干燥的草地^reset;，开阔且充满了外星生命。扫描显示这里多岩、多风且炎热……是个不错的日光浴地点！",
+        "一片多岩的^#ffe21d;干燥草地^reset;，那里酷热难耐！有高原、峡谷、风滚草，以及一个美丽草原的所有其他元素。"
       ]
     },
     // ------------- Ocean -------------    
@@ -77,9 +65,9 @@
       "op": "replace",
       "path": "/visitableTypeDescription/ocean",
       "value": [
-        "A planet of deep, dark ^#008aff;oceans^reset;, but adorned by charming tropical islands. Pick up some fish for me while you're there!",
-        "Forget the beach! You can go to a whole uncolonized ^#008aff;ocean^reset; planet like this one and make your own vacation!",
-        "This planet's surface is approximately 97.67 percent water. In other words, it's a real big ^#008aff;ocean^reset;. I wonder what lives down there...?"
+        "一个拥有深邃^#008aff;海洋^reset;的星球，但点缀着迷人的热带岛屿。你在那里的时候，顺便帮我抓些鱼吧！",
+        "忘掉海滩吧！你可以去一个像这样未被殖民的^#008aff;海洋^reset;星球，自己安排一个假期！",
+        "这个星球的表面大约有97.67%是水。换句话说，这是一个真正巨大的^#008aff;海洋^reset;。我想知道下面生活着什么……？"
       ]
     },
     // ################# TIER 4 (RADIOACTIVE)  #################  

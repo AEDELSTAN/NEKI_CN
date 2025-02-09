@@ -1,47 +1,81 @@
 [
-    {
-		"op": "replace",
-		"path": "/noCrewSpeech",
-		"value": {
-			"animation": "sheepish",
-			"text": "^#6f6f6f;$ 船员 \n^cyan;>现在不用操心船员的问题!\n飞船交给我，绝对安然无恙。要我说，拥有一艘属于自己的飞船可太棒了!\n不过，如果你想招募一些帮手，那也是你的自由;只是拜托你，一定要确保他们清楚自己在做什么...",
-			"speedModifier": 0.7
+	[
+		// Patch shipStatus/0 to say this if Frackin Universe is PRESENT
+		{
+			"op": "test",
+			"path": "/shipStatus/0/text",
+			"value":"^#6f6f6f;$ status
+^cyan;> Ship modification manual override in place.
+> Any ship modifications must be manually done by the captain."},{"op": "replace","path": "/shipStatus/0",
+			"value": "^#6f6f6f;$ status \n^cyan;>呃...嘿。你能重启飞船吗?"
 		}
-	},
-	{
-		"op": "replace",
-		"path": "/noMissionsSpeech",
-		"value": {
-			"animation": "sheepish",
-			"text": "^#6f6f6f;$ 任务 \n^cyan;>唔，这个菜单是干嘛的?任务?什么任务?现在我们只是努力在这未知的地方生存下来。话说回来，这里到底是哪儿啊...",
-			"speedModifier": 0.7
-		}
-	},
-	{
-		"op": "replace",
-		"path": "/shipStatus/1",
-		"value": {
-			"animation": "sheepish",
-			"text": "^#6f6f6f;$ 主页 \n^cyan;>如你所见...\n我们飞船的状态看起来不是很好。\n你最好^green;传送到下面，探索这颗我们正在环绕的行星看看。^cyan;\n但愿我们能找到点什么来收拾这个烂摊子。",
-			"speedModifier": 0.7
-		}
-	},
-	{
-		"op": "replace",
-		"path": "/shipStatus/2",
-		"value": {
-			"animation": "talk",
-			"text": "^#6f6f6f;$ status \n^cyan;>报告！我们的飞船还能飞！ \n>推进器全部正常 \n>飞船传送器运转良好 \n>^green;你可以在这个星系内自由穿梭， ^cyan;但在修复FTL驱动器之前，我们还无法进行星际航行。",
-			"speedModifier": 0.7
-		}
-	},
-	{
-		"op": "replace",
-		"path": "/shipStatus/3",
-		"value": {
-			"animation": "talk",
-			"text": "^#6f6f6f;$ status \n^cyan;>又见面啦~飞船状态一如既往! \n>推进器全部正常 \n>FTL驱动器运转良好. \n>飞船传送器运转良好 \n>你可以前往 ^green;宇宙的任何地方!",
-			"speedModifier": 0.7
-		}
-	}
-]
+	],
+	[
+		// Patch shipStatus/0 to say this if Frackin Universe is NOT present
+		{
+			"op": "test",
+			"path": "/shipStatus/0/text",
+			"value":"^#6f6f6f;$ status
+^cyan;> Ship modification manual override in place.
+> Any ship modifications must be manually done by the captain.","inverse":true},
+			// SHIP BROKEN (SHEEPISH)
+			{
+				"op": "replace",
+				"path": "/shipStatus/0",
+				"value": "^#6f6f6f;$ 状态 \n^cyan;>我们飞船的状态完全取决于你的操作！毕竟，我们已经启用了飞船改装的手动覆盖功能。任何改动都需要你自己来完成。"
+			}
+		],
+		[
+			// ########################################################################
+			// I'm hungry
+			// I think animationCycle means how many seconds it takes to play the full animation. And so, it differs depending on the amount of frames.
+			// If you put in a value of 1 for a four-frame animation, it will play four frames over one second.
+			// If you put in a value of 2 for a twenty-frame animation, it will play ten frames over one second, and then the remaining ten over the next second, resulting in 20 frames over 2 seconds.
+			// I THINK.
+			// It seems to usually be a good idea to leave a couple frames empty on the right side of SAIL's sprite sheet, otherwise the game gets really irritable about whether it's the correct size or not.
+			// If you make any changes to this, remember to transfer those changes/additions to the SAIL chip for Scripted SAIL too.
+			// Also the FU Ztarbound SAIL.
+			{
+				"op": "test",
+				"path": "/aiAnimations/avian_appear",
+				"inverse": true
+			},
+			{
+				"op": "test",
+				"path": "/interfaceText",
+				"inverse": true
+			},
+			// ########################################################################
+			// Code to replace all vanilla SAIL terminal dialogue
+			// NO CREW MEMBERS (SHEEPISH)
+			{
+				"op": "replace",
+				"path": "/noCrewSpeech/text",
+				"value": "^#6f6f6f;$ 船员 \n^cyan;>现在不用操心船员的问题!\n飞船交给我，绝对安然无恙。要我说，拥有一艘属于自己的飞船可太棒了!\n不过，如果你想招募一些帮手，那也是你的自由;只是拜托你，一定要确保他们清楚自己在做什么..."
+			},
+			// NO MISSIONS (SHEEPISH)
+			{
+				"op": "replace",
+				"path": "/noMissionsSpeech/text",
+				"value": "^#6f6f6f;$ 任务 \n^cyan;>唔，这个菜单是干嘛的?任务?什么任务?现在我们只是努力在这未知的地方生存下来。话说回来，这里到底是哪儿啊..."
+			},
+			// TELEPORTER FUNCTIONAL (SHEEPISH)
+			{
+				"op": "replace",
+				"path": "/shipStatus/1/text",
+				"value": "^#6f6f6f;$ 主页 \n^cyan;>如你所见...\n我们飞船的状态看起来不是很好。\n你最好^green;传送到下面，探索这颗我们正在环绕的行星看看。^cyan;\n但愿我们能找到点什么来收拾这个烂摊子。"
+			},
+			// SHIP FUNCTIONAL (TALK)
+			{
+				"op": "replace",
+				"path": "/shipStatus/2/text",
+				"value": "^#6f6f6f;$ status \n^cyan;>报告！我们的飞船还能飞！ \n>推进器全部正常 \n>飞船传送器运转良好 \n>^green;你可以在这个星系内自由穿梭， ^cyan;但在修复FTL驱动器之前，我们还无法进行星际航行。"
+			},
+			// FTL FUNCTIONAL (TALK)
+			{
+				"op": "replace",
+				"path": "/shipStatus/3/text",
+				"value": "^#6f6f6f;$ status \n^cyan;>又见面啦~飞船状态一如既往! \n>推进器全部正常 \n>FTL驱动器运转良好. \n>飞船传送器运转良好 \n>你可以前往^green;宇宙的任何地方!"
+			}
+		]
+	]

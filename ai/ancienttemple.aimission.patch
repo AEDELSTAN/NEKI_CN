@@ -1,0 +1,8 @@
+[
+	// Frackin' Universe
+	{
+		"op": "replace",
+		"path": "/speciesText/default/selectSpeech/text",
+		"value": "那里很暗！记得带上光源，还有氧气供应。"
+	}
+]
