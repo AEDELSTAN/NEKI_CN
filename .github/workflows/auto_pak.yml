@@ -1,0 +1,81 @@
+name: Auto Pak
+
+on:
+  push:
+    branches:
+      - main  # 当 main 分支有更新时触发
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  build:
+    runs-on: ubuntu-latest  # 使用最新的 Ubuntu 环境
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3  # 检出代码
+
+      - name: Set up environment
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl unzip  # 安装 curl 和 unzip
+
+      - name: Download asset_packer zip
+        run: |
+          curl -LO https://github.com/AEDELSTAN/NEKI_CN/releases/download/asset_packer/asset_packer.zip  # 下载 asset_packer 压缩包
+
+      - name: Unzip asset_packer
+        run: |
+          unzip asset_packer.zip  # 解压到 asset_packer 目录
+
+      - name: Make asset_packer executable
+        run: |
+          chmod +x asset_packer
+          ./asset_packer  # 赋予 asset_packer 执行权限
+
+      - name: Run asset_packer
+        run: |
+          ./asset_packer  # 运行 asset_packer
+
+      - name: Package files into .pak
+        run: |
+          # 假设 asset_packer 会生成一个 .pak 文件
+          tar -czvf NonEKI_CN.pak .  # 打包文件为 .pak
+
+      - name: Upload .pak file as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: NonEKI_CN.pak
+          path: NonEKI_CN.pak
+
+  release:
+    if: github.event_name == 'workflow_dispatch'  # 仅在手动触发时运行
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download .pak artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: NonEKI_CN.pak
+          path: .
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub Token
+        with:
+          tag_name: v1.0.0  # 你可以动态生成版本号
+          release_name: Release v1.0.0
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./NonEKI_CN.pak
+          asset_name: NonEKI_CN.pak
+          asset_content_type: application/zip
